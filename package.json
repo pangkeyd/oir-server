@@ -1,0 +1,29 @@
+{
+  "name": "oir-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pangkeyd/oir-server.git"
+  },
+  "author": "dpangkey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pangkeyd/oir-server/issues"
+  },
+  "homepage": "https://github.com/pangkeyd/oir-server#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.8"
+  }
+}
