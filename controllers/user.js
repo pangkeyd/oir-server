@@ -31,6 +31,18 @@ class User {
     })
   }
 
+  static signIn(req, res){
+    user.signIn(req.body, (result, auth) => {
+      if(result){
+        res.send(result)
+        console.log(result)
+      }else{
+        res.send(auth)
+        console.log(auth)
+      }
+    })
+  }
+
 }
 
 module.exports = User

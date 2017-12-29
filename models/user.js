@@ -72,9 +72,39 @@ let signUp = (body, cb) => {
   })
 }
 
+let signIn = (body, cb) => {
+  let query = {
+    $or: [
+      { email: body.email },
+      { username: body.username }
+    ]
+  }
+
+  User.find(query, (error, user) => {
+    if(user.length > 0){
+      let resPass = bcrypt.compareSync(body.password, user[0].salt)
+      if(resPass){
+        let obj = {
+          id: user[0]._id,
+          username: user[0].username
+        }
+        let token = jwt.sign(obj, process.env.SECRET_KEY)
+        cb(token, null)
+      }else{
+        let wrong = 'Wrong Username or Password!'
+        cb(null, wrong)
+      }
+    }else{
+      let wrong = `Wrong Username or Password!`
+      cb(null, wrong)
+    }
+  })
+}
+
 module.exports = {
   getUser,
   uniqueEmail,
   uniqueUsername,
-  signUp
+  signUp,
+  signIn
 }

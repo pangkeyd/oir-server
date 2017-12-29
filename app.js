@@ -24,8 +24,10 @@ app.use(bodyParser.json())
 // ROUTES
 
 const user = require('./routers/user')
+const blog = require('./routers/blog')
 
 app.use('/user', user)
+app.use('/blog', blog)
 
 app.listen(process.env.PORT_DEF, () => {
   console.log('AYO JALAN!')

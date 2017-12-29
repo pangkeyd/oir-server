@@ -10,4 +10,6 @@ router.get('/username/:username', User.getUniqueUsername)
 
 router.post('/signup', User.signUp)
 
+router.post('/signin', User.signIn)
+
 module.exports = router
